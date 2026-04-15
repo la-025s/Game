@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>code game</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+</head>
+<body>
+
+<div id="game-container">
+    <header class="main-header">
+        <div class="logo"><span class="game-icon">🎮</span> code game</div>
+        <nav><button class="nav-btn" onclick="retry()">🏠 الرئيسية</button>
+		<button id="back-nav-btn" class="nav-btn back-nav" onclick="goBack()" style="display: none;">⬅️ رجوع</button>
+		</nav>
+    </header>
+
+    <section id="home-page" class="page">
+        <div class="hero-content">
+            <h1>code game</h1>
+            <p>انطلق في رحلة سحرية لتعلم لغات المستقبل بأمتع الطرق!</p>
+            <div class="input-group">
+                <input type="text" id="user-name-input" placeholder="أدخل اسمك هنا...">
+            </div>
+            <button class="start-btn blue-gradient" onclick="saveNameAndContinue()">ابدأ اللعب</button>
+        </div>
+    </section>
+
+    <section id="language-page" class="page" style="display:none;">
+        <h2 id="welcome-msg" style="margin-bottom: 10px;">مرحباً بك!</h2>
+        <p style="margin-bottom: 30px;">اختر اللغة التي تريد تحديها:</p>
+        <div class="language-options">
+            <button class="lang-btn java-btn" onclick="startGame('Java')">
+                <span class="icon">☕</span> لغة Java
+            </button>
+            <button class="lang-btn html-btn" onclick="startGame('HTML')">
+                <span class="icon">🌐</span> لغة HTML
+            </button>
+            <button class="lang-btn css-btn" onclick="startGame('CSS')">
+                <span class="icon">🎨</span> لغة CSS
+            </button>
+        </div>
+    </section>
+
+    <section id="play-page" class="page" style="display:none;">
+        <div class="game-hud">
+            <div id="playerName">👤 اللاعب: </div>
+            <div id="timer">⏳ الوقت: 30</div>
+            <div id="score-display">النقاط: <span id="score">0</span></div>
+        </div>
+        <div class="problem-area">
+            <div class="question-box"><h3 id="question">جاري التحميل...</h3></div>
+            <div id="drop-area" class="screen-area"></div>
+            <div id="blocks" class="blocks-container"></div>
+            <div class="controls-area">
+                <button id="check-btn" onclick="finish()">تحقق من الإجابة ✅</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="result-page" class="page" style="display:none;">
+        <h2>النتيجة النهائية</h2>
+        <div class="result-box">
+            <p>مجموع النقاط: <span id="final-score">0</span></p>
+            <p>الأسئلة المجابة: <span id="correct-count">0</span></p>
+        </div>
+        <button class="retry-game-btn blue-gradient" onclick="retry()">لعب مجدداً 🔄</button>
+    </section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
