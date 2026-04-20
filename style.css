@@ -20,10 +20,30 @@ body {
     font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
-#game-container { width: 95%; max-width: 1100px; height: 90vh; background-color: var(--bg-main); border-radius: 25px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+#game-container {
+    width: 95%;
+    max-width: 1100px;
+    height: 90vh;
+    /* قمنا بجعل الخلفية شفافة بنسبة 40% لتظهر الصورة من خلفها */
+    background-color: rgba(29, 23, 51, 0.4); 
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px); /* حركة إضافية تعطي تأثير زجاجي جميل */
+}
 
-.page { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 50px; text-align: center; }
-
+.page {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    text-align: center;
+    background: transparent; /* جعل الصفحات شفافة تماماً */
+}
 
 .hero-content h1 { margin-bottom: 35px; font-size: 3rem; }
 .hero-content p { margin-bottom: 45px; color: var(--text-secondary); font-size: 1.2rem; }
