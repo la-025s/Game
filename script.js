@@ -119,9 +119,8 @@ function finish() {
         }
     } else {
         soundWrong.play();
-      setTimeout(() => {
-        alert("❌ الترتيب خاطئ!\nحاول مرة أخرى");
-    }, 100);
+        alert("❌ الترتيب خاطئ!\nحاول مرة أخرى"); // رسالة الخطأ المطلوبة
+    }
 }
 
 function finishGame(isWin) {
