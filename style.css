@@ -1,75 +1,47 @@
 :root {
-    --bg-dark: #2d1b4e; 
-    --bg-main: #3d2b63; 
-    --text-primary: #ffffff;
-    --text-secondary: #d1c4e9; 
-    --light-blue: #4f92ff; 
-    --accent-orange: #ff8533;
+    --bg-dark: #121020; --bg-main: #1d1733; --text-primary: #ffffff;
+    --text-secondary: #c9bcf0; --light-blue: #3b82f6; --accent-orange: #f97316;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, sans-serif; }
+body { background-color: var(--bg-dark); color: var(--text-primary); direction: rtl; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
 
-body { 
-    background-color: var(--bg-dark); 
-    min-height: 100vh; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    overflow: hidden; 
-    position: relative;
+#game-container { width: 95%; max-width: 1100px; height: 90vh; background-color: var(--bg-main); border-radius: 25px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+
+.page { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 50px; text-align: center; }
+
+/* تباعد الصفحة الرئيسية */
+.hero-content h1 { margin-bottom: 35px; font-size: 3rem; }
+.hero-content p { margin-bottom: 45px; color: var(--text-secondary); font-size: 1.2rem; }
+
+.input-group { margin-bottom: 35px; }
+#user-name-input { padding: 18px; width: 320px; border-radius: 12px; border: 2px solid var(--light-blue); background: rgba(255,255,255,0.05); color: white; text-align: center; font-size: 1.1rem; }
+
+/* تباعد أزرار اللغات */
+.language-options { display: flex; flex-direction: column; gap: 25px; margin-top: 20px; }
+.lang-btn { width: 280px; padding: 20px; border-radius: 15px; border: none; color: white; font-weight: bold; cursor: pointer; font-size: 1.2rem; transition: 0.3s; display: flex; align-items: center; justify-content: center; }
+.icon { margin-left: 15px; font-size: 1.5rem; }
+
+.java-btn { background: #ef4444; } .html-btn { background: #3b82f6; } .css-btn { background: #22c55e; }
+.lang-btn:hover { transform: translateY(-5px); filter: brightness(1.2); }
+
+/* HUD اللعبة */
+.game-hud { width: 100%; display: flex; justify-content: space-around; background: rgba(0,0,0,0.2); padding: 15px; border-radius: 10px; margin-bottom: 20px; }
+
+/* منطقة البرمجة */
+.screen-area { width: 100%; min-height: 120px; background: rgba(0,0,0,0.4); border: 3px dashed var(--light-blue); margin: 25px 0; border-radius: 15px; display: flex; flex-wrap: wrap; gap: 12px; padding: 20px; direction: ltr; }
+.blocks-container { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; min-height: 80px; direction: ltr; margin-bottom: 20px; }
+.game-block { background: var(--accent-orange); padding: 10px 20px; border-radius: 8px; cursor: grab; font-family: monospace; font-size: 1.1rem; box-shadow: 0 4px 0 #c25e10; }
+
+.blue-gradient { background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: white; padding: 18px 50px; border: none; border-radius: 12px; cursor: pointer; font-weight: bold; font-size: 1.1rem; }
+.back-nav {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--light-blue);
+    font-size: 0.9rem;
+    padding: 8px 15px;
 }
 
-/* رموز الخلفية */
-body::before {
-    content: "<div> </div> { } </html> <p> </p> ; console.log() if() querySelector # . /* */";
-    position: absolute;
-    top: 10%;
-    left: 10%;
-    width: 80%;
-    height: 80%;
-    font-family: monospace;
-    font-size: 1.5rem;
-    color: rgba(255, 255, 255, 0.05);
-    pointer-events: none;
-    z-index: 0;
+.back-nav:hover {
+    background-color: var(--light-blue);
+    color: white;
 }
-
-#game-container { 
-    width: 90%; 
-    max-width: 900px; 
-    background-color: var(--bg-main); 
-    border-radius: 20px; 
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* إصلاح تداخل العناصر */
-.page { 
-    width: 100%;
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    gap: 20px;
-}
-
-h1 { font-size: 2.5rem; margin-bottom: 10px; }
-.hero-content p { margin-bottom: 20px; color: var(--text-secondary); }
-
-.start-btn { 
-    padding: 15px 40px; 
-    background: var(--light-blue); 
-    border: none; 
-    border-radius: 10px; 
-    color: white; 
-    cursor: pointer; 
-    font-size: 1.2rem;
-    margin-top: 10px;
-}
-
-/* تصحيح شكل الأزرار */
-.lang-btn { width: 100%; max-width: 300px; padding: 15px; border-radius: 10px; border: none; cursor: pointer; color: white; font-weight: bold; }
